@@ -23,7 +23,7 @@ class RegisterEventStoreCompilerPass extends CompilerPass
     {
         $serviceParameter = 'broadway.event_store.service_id';
         if (!$container->hasParameter($serviceParameter)) {
-            $container->setAlias('broadway.event_store', 'broadway.event_store.in_memory');
+            $container->setAlias('broadway.event_store', 'broadway.event_store.dbal');
 
             return;
         }
