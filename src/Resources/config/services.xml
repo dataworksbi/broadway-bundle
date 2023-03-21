@@ -16,5 +16,11 @@
 
         <service id="broadway.read_model.in_memory.repository_factory" class="Broadway\ReadModel\InMemory\InMemoryRepositoryFactory" />
 
+        <!-- commands -->
+        <service id="broadway.event_store_create_command" class="Broadway\Bundle\BroadwayBundle\Command\CreateEventStoreCommand">
+            <argument type="service" id="broadway" />
+
+            <tag name="console.command" command="broadway:event-store:create" />
+        </service>
     </services>
 </container>
