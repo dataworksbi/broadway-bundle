@@ -12,7 +12,7 @@
             <tag name="broadway.metadata_enricher" />
         </service>
 
-        <service id="broadway.event_store.in_memory" class="Broadway\EventStore\InMemoryEventStore" />
+        <service id="broadway.event_store.dbal" class="Broadway\EventStore\Dbal\DBALEventStore" />
 
         <service id="broadway.read_model.in_memory.repository_factory" class="Broadway\ReadModel\InMemory\InMemoryRepositoryFactory" />
 
