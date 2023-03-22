@@ -18,9 +18,10 @@
 
         <!-- commands -->
         <service id="broadway.event_store_create_command" class="Broadway\Bundle\BroadwayBundle\Command\CreateEventStoreCommand">
+            <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="broadway.event_store.dbal" />
-
+            
             <tag name="console.command" command="broadway:event-store:create" />
-        </service>
+        </service> 
     </services>
 </container>
