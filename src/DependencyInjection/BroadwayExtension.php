@@ -34,6 +34,10 @@ class BroadwayExtension extends ConfigurableExtension
             $container->setParameter('broadway.event_store.service_id', $mergedConfig['event_store']);
         }
 
+        if (isset($mergedConfig['snapshot_store'])) {
+            $container->setParameter('broadway.snapshot_store.service_id', $mergedConfig['snapshot_store']);
+        }
+
         if (isset($mergedConfig['read_model'])) {
             $container->setParameter('broadway.read_model_repository_factory.service_id', $mergedConfig['read_model']);
         }
