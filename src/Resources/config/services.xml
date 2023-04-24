@@ -13,6 +13,7 @@
         </service>
 
         <service id="broadway.event_store.dbal" class="Broadway\EventStore\Dbal\DBALEventStore" />
+        <service id="broadway.snapshot_store.dbal" class="Broadway\Snapshotting\Dbal\DBALSnapshotRepository" />
 
         <service id="broadway.read_model.in_memory.repository_factory" class="Broadway\ReadModel\InMemory\InMemoryRepositoryFactory" />
 
@@ -22,6 +23,12 @@
             <argument type="service" id="broadway.event_store.dbal" />
             
             <tag name="console.command" command="broadway:event-store:create" />
-        </service> 
+        </service>
+        <service id="broadway.snapshot_store_create_command" class="Broadway\Bundle\BroadwayBundle\Command\CreateSnapshotStoreCommand">
+            <argument type="service" id="doctrine.dbal.default_connection" />
+            <argument type="service" id="broadway.snapshot_store.dbal" />
+            
+            <tag name="console.command" command="broadway:snapshot-store:create" />
+        </service>  
     </services>
 </container>
