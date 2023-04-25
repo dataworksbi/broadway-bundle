@@ -68,8 +68,8 @@ EOT
     {
         $schemaManager = $this->connection->getSchemaManager();
 
-        if ($table = $this->snapshotStore->configureSchema($schemaManager->createSchema())) {
-            $schemaManager->createTable($table);
+        if ($this->snapshotStore->createSchema()) { //configureSchema($schemaManager->createSchema())) {
+            //$schemaManager->createTable($table);
             $output->writeln('<info>Created Broadway snapshot store schema</info>');
         } else {
             $output->writeln('<info>Broadway snapshot store schema already exists</info>');
